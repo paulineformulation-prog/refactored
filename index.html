@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraBiochar Solutions - Transforming Land, Empowering Farmers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #6b8e23 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "🌸";
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(45,80,22,0.9), rgba(107,142,35,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="farmPattern" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="%23fff" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23farmPattern)"/></svg>');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,400 Q300,350 600,380 T1200,350 L1200,600 L0,600 Z" fill="%23228B22" opacity="0.3"/></svg>') no-repeat center bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #90EE90);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #32CD32, #228B22);
+            color: white;
+            box-shadow: 0 8px 25px rgba(50,205,50,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(50,205,50,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2d5016;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #228B22;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #32CD32, #228B22);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: linear-gradient(45deg, #32CD32, #228B22);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* Impact Section */
+        .impact {
+            background: #2d5016;
+            color: white;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .impact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        .team-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #32CD32, #228B22);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #228B22;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #32CD32;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #32CD32;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #32CD32;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">DesertBloom Technologies</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transforming Invasive Shrubs Into Fertile Solutions</h1>
+            <p>Revolutionary AI-powered platform combining biochar production, precision soil analysis, and customized fertilizer recommendations for sustainable land restoration in arid regions.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Partner With Us</a>
+                <a href="#solutions" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">3.67x</div>
+                <div class="stat-label">CO₂ Sequestered per Ton of Biochar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Farmers in Pilot Program</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">89%</div>
+                <div class="stat-label">Farmer Adoption Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Counties Operating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Integrated Solution</h2>
+            <p class="section-subtitle">We transform invasive shrubs into valuable biochar while providing farmers with AI-powered precision agriculture tools</p>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🔬</div>
+                    <h3>AI-Powered Soil Analysis</h3>
+                    <p>Instant soil testing with machine learning algorithms that analyze nutrient content, pH levels, and carbon capacity. Our mobile app provides real-time, location-specific recommendations for optimal crop growth.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">♻️</div>
+                    <h3>Biochar Production</h3>
+                    <p>Convert invasive shrub species into high-quality biochar using portable kilns. Each ton of biochar sequesters 3.67 tons of CO₂ while improving soil water retention and nutrient availability.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">🌾</div>
+                    <h3>Precision Fertilizer Formulation</h3>
+                    <p>Customized fertilizer recommendations based on specific crop needs, soil conditions, and climate data. Reduce synthetic fertilizer dependency while maximizing agricultural productivity.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Mobile Technology Platform</h3>
+                    <p>User-friendly mobile app that connects farmers to our services, provides ongoing support, tracks carbon impact, and enables easy reordering of customized products.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">🌍</div>
+                    <h3>Carbon Credit Program</h3>
+                    <p>Verified carbon sequestration through biochar application, enabling farmers to participate in carbon markets and generate additional income streams.</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">🏞️</div>
+                    <h3>Land Restoration Services</h3>
+                    <p>Comprehensive land restoration combining invasive species removal, soil amendment, and sustainable agricultural practices designed for arid and semi-arid environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section process">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Our streamlined process transforms environmental challenges into agricultural opportunities</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Invasive Species Collection</h3>
+                    <p>Partner with local communities to collect invasive shrubs, creating employment while clearing degraded lands.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Biochar Production</h3>
+                    <p>Convert collected biomass into high-quality biochar using portable, efficient kilns designed for rural environments.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Soil Analysis</h3>
+                    <p>Use instant soil testing devices to analyze farmer's land, measuring nutrients, pH, and carbon content.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>AI Formulation</h3>
+                    <p>Our machine learning algorithms create customized fertilizer formulations based on soil data, crop type, and climate conditions.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Product Delivery</h3>
+                    <p>Deliver biochar and customized fertilizers directly to farmers through mobile units and local distribution networks.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Monitoring & Support</h3>
+                    <p>Provide ongoing support through our mobile app, tracking crop performance and carbon sequestration impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section impact">
+        <div class="container">
+            <h2 class="section-title">Environmental Impact</h2>
+            <p class="section-subtitle">Creating positive environmental cycles while empowering farming communities</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🌱</div>
+                    <h3>Soil Restoration</h3>
+                    <p>Biochar increases soil organic matter, improves water retention capacity by up to 30%, and enhances nutrient availability for sustainable crop production.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">💨</div>
+                    <h3>Carbon Sequestration</h3>
+                    <p>Each ton of biochar permanently sequesters 3.67 tons of CO₂ equivalent, contributing to climate change mitigation while improving soil health.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">🦋</div>
+                    <h3>Biodiversity Recovery</h3>
+                    <p>Removing invasive shrub species restores native ecosystems, improves grazing lands, and supports local wildlife habitats.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">💧</div>
+                    <h3>Water Conservation</h3>
+                    <p>Biochar-amended soils retain moisture more effectively, reducing irrigation needs and supporting drought-resistant agriculture.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">👥</div>
+                    <h3>Community Employment</h3>
+                    <p>Creates local employment opportunities in invasive species collection, biochar production, and agricultural support services.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">📈</div>
+                    <h3>Agricultural Productivity</h3>
+                    <p>Precision fertilizer recommendations increase crop yields while reducing input costs and environmental impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Leadership Team</h2>
+            <p class="section-subtitle">Passionate about sustainable agriculture and environmental restoration</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h3>Naomi Wangari</h3>
+                    <h4 style="color: #228B22; margin-bottom: 1rem;">CEO & Founder</h4>
+                    <p>Visionary leader driving sustainable agriculture innovation and environmental restoration in Kenya's arid regions. Passionate about empowering smallholder farmers through technology.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👥</div>
+                    <h3>Elizabeth</h3>
+                    <h4 style="color: #228B22; margin-bottom: 1rem;">Community Mobilizer</h4>
+                    <p>Expert in community engagement and farmer outreach. Builds strong relationships with local communities and ensures our solutions meet real farmer needs.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <h3>Pauline Wangui</h3>
+                    <h4 style="color: #228B22; margin-bottom: 1rem;">AI & IT Specialist</h4>
+                    <p>Technical lead developing our AI-powered soil analysis algorithms and mobile platform. Expertise in machine learning and agricultural technology systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Ready to transform your land? Let's discuss how TerraBiochar Solutions can help.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #2d5016;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Locations</strong><br>
+                            Turkana County & Kiambu County, Kenya
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            naomichege361@gmail.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            +254701071536
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌍</div>
+                        <div>
+                            <strong>Service Area</strong><br>
+                            Kenya's Arid & Semi-Arid Lands (ASALs)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Mobile App</strong><br>
+                            Launching Q4 2025
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #2d5016;">Send Us a Message</h3>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organization/Farm</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Area of Interest</label>
+                            <select style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem;">
+                                <option>Biochar Products</option>
+                                <option>Soil Analysis Services</option>
+                                <option>Partnership Opportunities</option>
+                                <option>Investment Discussions</option>
+                                <option>Research Collaboration</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DesertBloom Technologies Ltd</h3>
+                    <p>Transforming invasive shrubs into fertile solutions for sustainable agriculture and environmental restoration.</p>
+                    <p style="margin-top: 1rem;"><strong>Incorporating:</strong> September 2025</p>
+                    <p><strong>Operations Launch:</strong> Q4 2025</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">Biochar Production</a>
+                    <a href="#">Soil Analysis</a>
+                    <a href="#">Precision Fertilizers</a>
+                    <a href="#">Mobile App Platform</a>
+                    <a href="#">Carbon Credits</a>
+                    <a href="#">Land Restoration</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Target Markets</h3>
+                    <a href="#">Smallholder Farmers</a>
+                    <a href="#">Agricultural Cooperatives</a>
+                    <a href="#">NGOs & Development Organizations</a>
+                    <a href="#">County Agricultural Departments</a>
+                    <a href="#">Research Institutions</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#team">Leadership Team</a>
+                    <a href="#impact">Environmental Impact</a>
+                    <a href="#">Investment Opportunities</a>
+                    <a href="#">Partnership Program</a>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#">Careers (Coming Soon)</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DesertBloom Technologies Ltd. All rights reserved. | Pioneering sustainable agriculture in Kenya's ASALs</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
